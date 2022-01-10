@@ -1,0 +1,2 @@
+- [上一级目录](/#一点心得文档)
+- [$SHOW_NAME-文章列表](/documents/$DOCS_PATH/)
