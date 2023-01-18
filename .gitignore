@@ -1,1 +1,22 @@
 .DS_Store
+
+# dependencies
+ydxd_manager/node_modules
+ydxd_manager/.pnp
+ydxd_manager/*/.pnp.js
+ydxd_manager/.php.js
+# testing
+ydxd_manager/coverage
+
+# production
+ydxd_manager/build
+
+# misc
+ydxd_manager/.env.local
+ydxd_manager/.env.development.local
+ydxd_manager/.env.test.local
+ydxd_manager/.env.production.local
+
+ydxd_manager/npm-debug.log*
+ydxd_manager/yarn-debug.log*
+ydxd_manager/yarn-error.log*
