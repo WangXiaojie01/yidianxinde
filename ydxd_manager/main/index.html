@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>一点心得文件管理平台</title>
+    </head>
+    <body>
+        <form enctype="multipart/form-data" action="/upload" method="post">
+            <table width="70%" border="1" cellspacing="0" cellpadding="0">
+                <tr>   
+                    <td>  
+                        <select name="selectdir">
+                            <option value="index">索引</option>
+                            <option value="tools">工具</option>
+                            <option value="note">随笔</option>
+                            <option value="csharp">C#</option>
+                            <option value="unity">Unity</option>
+                            <option value="js">JS</option>
+                            <option value="go">Golang</option>
+                            <option value="react">React</option>
+                            <option value="react_native">React Native</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>  
+                        <input type="file" name="uploadfile" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="hidden" name="token" value=""/>
+                        <input type="submit" value="提交文件" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href=files>文件访目录</a></td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
