@@ -1,6 +1,0 @@
-- [首页](/)
-   - [工具](/documents/tools/)
-   - [随笔](/documents/note/)
-   - [React Native](/documents/react_native/)
-   - [C#](/documents/csharp/)
-   - [Unity](/documents/unity/)
