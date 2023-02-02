@@ -1,7 +1,12 @@
 import { FileOutlined, SettingOutlined, EyeOutlined } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+import { Breadcrumb, Layout, Menu, theme, Divider, Typography, AutoComplete } from 'antd';
 import React, { useState } from 'react';
+import ArticleView from './View/Article/article';
+import SettingView from './View/Setting/setting';
+import PreferenceView from './View/Preference/preference';
 const { Header, Content, Footer, Sider } = Layout;
+const { Text, Link } = Typography;
+
 
 function getItem(label, key, icon, children, content) {
   return {
@@ -13,9 +18,9 @@ function getItem(label, key, icon, children, content) {
   };
 }
 const items = [
-  getItem('文章管理', '0', <FileOutlined />, null, <div>11111</div>),
-  getItem('界面管理', '1', <EyeOutlined />, null, <div>22222</div>),
-  getItem('功能管理', '2', <SettingOutlined />, null, <div>33333</div>),
+  getItem('文章管理', '0', <FileOutlined />, null, <ArticleView/>),
+  getItem('界面管理', '1', <EyeOutlined />, null, <PreferenceView/>),
+  getItem('功能管理', '2', <SettingOutlined />, null, <SettingView/>),
 ];
 
 const App = () => {
@@ -27,60 +32,50 @@ const App = () => {
   const [selectedKey, setSelectedKey] = useState([]);
   const onSelectedKey = ({ item, key, keyPath, selectedKeys, domEvent }) => {
     setSelectedKey(selectedKeys);
-    console.log("key is ", selectedKey)
   }
   const index = selectedKey.length > 0 ? parseInt(selectedKey[0]) : 0
   const content = items[index].content
+  const title = collapsed ? "" : "一点心得后台管理"
 
   return (
     <Layout
       style={{
         minHeight: '100vh',
+        // margin: 0,
+        // padding: 0,
+        // backgroundColor: "red",
       }}
     >
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}
+       style={{margin: 0, padding: 0, /*backgroundColor: 'blue'*/}}>
         <div
           style={{
-            height: 32,
-            margin: 16,
+            height: 40,
+            fontSize: 22,
+            textAlign: 'center',
+            padding: 5,
             background: 'rgba(255, 255, 255, 0.2)',
           }}
-        />
+        >{title}</div>
         <Menu theme="dark" defaultSelectedKeys={['0']} mode="inline" items={items} onSelect={onSelectedKey} />
       </Sider>
-      <Layout className="site-layout">
-        <Header
-          style={{
-            padding: 0,
-            background: colorBgContainer,
-            fontSize: 20,
-            paddingLeft: 15,
-          }}
-        >一点心得后台管理</Header>
-        <Content
-          style={{
-            margin: '0 16px',
-          }}
-        >
-          {/*<Breadcrumb
-            style={{
-              margin: '16px 0',
-            }}
-            separator=">"
-          >
-            <Breadcrumb.Item>文章管理</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill2</Breadcrumb.Item>
-          </Breadcrumb>*/}
-          {content}
-        </Content>
+      <Layout className="site-layout"
+        style={{
+          padding: 0,
+          margin: 0,
+        //  background: 'green',
+          fontSize: 20,
+          // paddingLeft: 15,
+        }}
+      >
+        {content}
+        <Divider style={{margin:0, padding: 0,}}/>
         <Footer
           style={{
             textAlign: 'center',
+            background: colorBgContainer,
           }}
-        >
-        Copyright ©2023 晓白齐齐
-        </Footer>
+        >Copyright ©2023 晓白齐齐</Footer>
       </Layout>
     </Layout>
   );
